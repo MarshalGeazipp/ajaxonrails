@@ -1,0 +1,27 @@
+<%= link_to_remote "Zeit anzeigen",
+  :update => 'current_time',
+  :url    => {:action => 'get_time'},
+  :before => "$('indicator').show()",
+  :success => "$('current_time').visualEffect('highlight')",
+  :failure => "alert('Es gab einen Fehler. ')",
+  :complete => "$('indicator').hide()" %>
+<span id="indicator" style="display: none;">Laden ...</span>
+<div id="current_time"></div>
+
+
+<p>
+<%= link_to_function "DIV umschalten", "$('indicator').toggle()"  %>
+</p>
+
+
+
+<%= button_to_remote "Zeit anzeigen", :update => "current_time",
+    :url => {:action => 'get_time'} %>
+
+<p>Umzukehrender Text: <%= text_field_tag 'text_to_reverse' %></p>
+<p id="reversed2"></p>
+<%= observe_field 'text_to_reverse',
+    :update => "reversed2",
+    :url => {:action => 'reverse'},
+    :frequency => 0.1,
+    :with => 'text_to_reverse' %>

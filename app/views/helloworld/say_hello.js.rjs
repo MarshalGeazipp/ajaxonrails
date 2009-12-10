@@ -1,0 +1,2 @@
+page.replace_html 'message', @message
+page.visual_effect(:highlight, 'message', :duration => 0.5)
