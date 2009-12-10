@@ -1,0 +1,15 @@
+
+<div id="target" class="green box">
+  <div>Hier ist ein DIV mit etwas Text.</div>
+</div>
+
+<%= link_to_function "Fade mit Callback",
+  "new Effect.Fade('target', { afterUpdate: function(effect) {
+  effect.element.innerHTML = effect.currentFrame;
+}})" %>
+<%= link_to_function "Opacity", "new Effect.Opacity('target', {to:0.5})" %>
+
+<% %w( Fade Appear Highlight Fold Pulsate SlideUp SlideDown Shrink Grow
+      Squish Shake DropOut SwitchOff Puff BlindUp BlindDown ).each do |name| %>
+  <%= link_to_function name, "new Effect.#{name}('target')" %>
+<% end %>
