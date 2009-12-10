@@ -1,8 +1,10 @@
+<%#= stylesheet_link_tag "blueprint/screen", :media => "screen"%>
+
 <%= link_to_remote "Zeit anzeigen",
   :update => 'current_time',
   :url    => {:action => 'get_time'},
   :before => "$('indicator').show()",
-  :success => "$('current_time').visualEffect('highlight')",
+  :success => visual_effect(:highlight, :current_time),
   :failure => "alert('Es gab einen Fehler. ')",
   :complete => "$('indicator').hide()" %>
 <span id="indicator" style="display: none;">Laden ...</span>
