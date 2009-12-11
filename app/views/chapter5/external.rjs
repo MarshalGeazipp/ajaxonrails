@@ -2,4 +2,3 @@
 page[:my_div].replace_html :partial => "my_div"
 page[:my_div].reload
 page.insert_html :top, :my_div, 'eingefüger Text'
-
