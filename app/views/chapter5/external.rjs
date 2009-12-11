@@ -1,0 +1,5 @@
+#page[:my_div].visual_effect(:highlight).remove_class_name(:green)
+page[:my_div].replace_html :partial => "my_div"
+page[:my_div].reload
+page.insert_html :top, :my_div, 'eingefüger Text'
+

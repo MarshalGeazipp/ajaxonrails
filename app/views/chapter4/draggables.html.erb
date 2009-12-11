@@ -1,0 +1,29 @@
+<div id="dragDIV" class="green box" style="cursor:move">Drag</div>
+<%= draggable_element :dragDIV %>
+
+<div id="ghostingDIV" class="green box">ghosting</div>
+<%= draggable_element(:ghostingDIV, {:ghosting => true, :revert => true,
+    :change => "function(draggable) {
+      draggable.element.innerHTML=draggable.currentDelta();
+    }"
+}) %>
+
+<div id="drop" class="pink box">Drop</div>
+<%= drop_receiving_element(:drop, :hoverclass => 'hover', :update => "status",
+ :url => {:action => :receive_drop} ) %>
+<div id="status"></div>
+
+<ul id="listAjax">
+  <li id="item_1">Milch</li>
+  <li id="item_2">Marmekloade</li>
+  <li id="item_3">Brot</li>
+</ul>
+
+<ul id="emptyList">
+</ul>
+
+<%= sortable_element(:listAjax, :containment => ['listAjax', 'emptyList'],
+  :dropOnEmpty => true, :url => { :action => :repeat },
+  :complete => "alert(request.responseText);") %>
+<%= sortable_element(:emptyList, :containment => ['listAjax', 'emptyList'],
+  :dropOnEmpty => true) %>
