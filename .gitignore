@@ -6,4 +6,6 @@ doc/app
 db/*.sqlite3
 *.swp
 *~
+config/database.yml
+
 
