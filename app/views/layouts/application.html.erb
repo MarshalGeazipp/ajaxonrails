@@ -4,15 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>AjaxonRails: <%= controller.action_name %></title>
+  <title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag "application" %>
 </head>
 <body>
-  <h1>Ajax on Rails</h1>
-<p style="color: green"><%= flash[:notice] %></p>
+  <p style="color: green"><%= flash[:notice] %></p>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
+
