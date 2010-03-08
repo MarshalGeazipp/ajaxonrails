@@ -11,3 +11,4 @@ class Chapter4Controller < ApplicationController
   end
 
 end
+
